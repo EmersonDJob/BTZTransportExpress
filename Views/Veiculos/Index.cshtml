@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BTZTransportExpress.Models.Veiculo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Veiculos</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar Veiculo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeVeiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoCombustivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fabricante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnoFabricacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxTanque)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeVeiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoCombustivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoFabricacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxTanque)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
